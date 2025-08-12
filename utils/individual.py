@@ -1,7 +1,7 @@
 import numpy as np
-import node as Node
-from utils import draw
-import protectedOperators as po
+import utils.node as Node
+from utils.draw import draw
+import utils.protectedOperators as po
 import random
 
 CONSTANT = [
@@ -18,11 +18,6 @@ CONSTANT = [
     -1.0,            # Negative unity
     0.0              # Zero
 ]
-
-NODE_TYPE = random.choices(
-    ['binary', 'unary', 'variable', 'constant'],
-    weights=[0.35, 0.35, 0.15, 0.15]
-)[0]
 
 class Individual:
     def __init__(self, maxDepth, xTrain, yTrain, individualAttempts):
@@ -57,18 +52,24 @@ class Individual:
                 return Node.Node(random.choice(CONSTANT), 'constant')
         # Randomly choose an operator
         else:
-            if NODE_TYPE == 'binary':
-                op = random.choice(po.OPERATORS_BINARY)
+
+            nodeType = random.choices(
+                ['binary', 'unary', 'variable', 'constant'],
+                weights=[0.35, 0.35, 0.15, 0.15]
+            )[0]
+
+            if nodeType == 'binary':
+                op = random.choice(list(po.OPERATORS_BINARY.values()))
                 left = self.generateRandomIndividual(currentDepth + 1, maxDepth)
                 right = self.generateRandomIndividual(currentDepth + 1, maxDepth)
                 return Node.Node(op, successors=[left, right], name='operatorBinary')
 
-            elif NODE_TYPE == 'unary':
-                op = random.choice(po.OPERATORS_UNARY)
+            elif nodeType == 'unary':
+                op = random.choice(list(po.OPERATORS_UNARY.values()))
                 child = self.generateRandomIndividual(currentDepth + 1, maxDepth)
                 return Node.Node(op, successors=[child], name='operatorUnary')
 
-            elif NODE_TYPE == 'variable':
+            elif nodeType == 'variable':
                 return Node.Node(self.variables[random.randint(0, self.numVariables - 1)], name='variable')
 
             else:  # constant
@@ -131,17 +132,17 @@ class Individual:
     
     def getAllNodes(self):
         """
-        Get all nodes in the individual tree.
+        Get all nodes in the individual as (node, parent, index, depth) tuples.
         """
         if self.root is None:
             return []
 
         nodes = []
 
-        def traverse(node):
-            nodes.append(node)
-            for child in node.successors:
-                traverse(child)
+        def traverse(node, parent=None, index=None, depth=0):
+            nodes.append((node, parent, index, depth))
+            for idx, child in enumerate(node.successors):
+                traverse(child, node, idx, depth + 1)
 
         traverse(self.root)
         return nodes
@@ -162,10 +163,9 @@ class Individual:
             return
         
         if random.random() < 0.6:
-            self.mutateSubIndividual()
+            self.replaceChild()
         else:
             mutations = [
-                self.replaceChild,
                 self.mutateIndividual,
                 self.swapChilds,
                 self.promoteChild,
@@ -249,7 +249,7 @@ class Individual:
         Swaps the children of a randomly chosen binary operator.
         """
         binary_nodes = [
-            n for n in self.get_all_nodes()
+            n for n in self.getAllNodes()
             if n[0].arity == 2  # Only binary operators
         ]
         if not binary_nodes:
@@ -321,7 +321,7 @@ class Individual:
                 collapsed_value = 0.0
 
             # Create new constant node
-            new_node = Node(collapsed_value)
+            new_node = Node.Node(collapsed_value)
 
             # Replace node in parent or at root
             if parent is None:
@@ -367,7 +367,7 @@ class Individual:
         attempts = self.individualAttempts
         isSwappable = False
 
-        while attempts > 0 and not valid_swap_found:
+        while attempts > 0 and not isSwappable:
             node1, parent1, idx1, depth1 = random.choice(nodes1)
             node2, parent2, idx2, depth2 = random.choice(nodes2)
 
@@ -401,7 +401,7 @@ class Individual:
                 offspring2.computeFitness()
 
                 if offspring1.fitness != np.inf and offspring2.fitness != np.inf:
-                    valid_swap_found = True
+                    isSwappable = True
                 else:
                     # Revert if invalid
                     if parent1 is None:
@@ -426,4 +426,4 @@ class Individual:
         return offspring1, offspring2
     
     def __str__(self):
-        self.root.__str__() if self.root is not None else ""
+        return self.root.__str__() if self.root is not None else ""
