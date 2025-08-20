@@ -1,8 +1,10 @@
+from platform import node
 import numpy as np
 import utils.node as Node
 from utils.draw import draw
 import utils.protectedOperators as po
 import random
+import matplotlib.pyplot as plt
 
 CONSTANT = [
     np.pi,           # π ≈ 3.14159
@@ -44,46 +46,43 @@ class Individual:
         if maxDepth is None:
             maxDepth = self.maxDepth
 
-        if currentDepth >= maxDepth or (self.root is not None and random.random() < 0.1):
+        if currentDepth >= maxDepth:
             # Create a leaf node with a constant or variable
             if random.random() < 0.5 and self.variables:
-                return Node.Node(random.choice(self.variables), 'variable')
+                var_name = random.choice(self.variables)
+                return Node.Node(var_name, successors=[], name=var_name)
             else:
-                return Node.Node(random.choice(CONSTANT), 'constant')
-        # Randomly choose an operator
+                const_value = random.choice(CONSTANT)
+                return Node.Node(const_value, successors=[], name=str(const_value))
         else:
-
-            nodeType = random.choices(
-                ['binary', 'unary', 'variable', 'constant'],
-                weights=[0.35, 0.35, 0.15, 0.15]
-            )[0]
-
-            if nodeType == 'binary':
-                op = random.choice(list(po.OPERATORS_BINARY.values()))
-                left = self.generateRandomIndividual(currentDepth + 1, maxDepth)
-                right = self.generateRandomIndividual(currentDepth + 1, maxDepth)
-                return Node.Node(op, successors=[left, right], name='operatorBinary')
-
-            elif nodeType == 'unary':
-                op = random.choice(list(po.OPERATORS_UNARY.values()))
-                child = self.generateRandomIndividual(currentDepth + 1, maxDepth)
-                return Node.Node(op, successors=[child], name='operatorUnary')
-
-            elif nodeType == 'variable':
-                return Node.Node(self.variables[random.randint(0, self.numVariables - 1)], name='variable')
-
-            else:  # constant
-                return Node.Node(CONSTANT[random.randint(0, len(CONSTANT) - 1)], name='constant')
+            if random.random() < 0.7:
+                if random.random() < 0.5:
+                    # Binary operator
+                    op_func = random.choice(list(po.OPERATORS_BINARY.values()))
+                    op_name = [k for k, v in po.OPERATORS_BINARY.items() if v == op_func][0]
+                    left = self.generateRandomIndividual(currentDepth + 1, maxDepth)
+                    right = self.generateRandomIndividual(currentDepth + 1, maxDepth)
+                    return Node.Node(op_func, successors=[left, right], name=op_name)
+                else:
+                    # Unary operator
+                    op_func = random.choice(list(po.OPERATORS_UNARY.values()))
+                    op_name = [k for k, v in po.OPERATORS_UNARY.items() if v == op_func][0]
+                    child = self.generateRandomIndividual(currentDepth + 1, maxDepth)
+                    return Node.Node(op_func, successors=[child], name=op_name)
+            else:
+                # Leaf node
+                if random.random() < 0.5 and self.variables:
+                    var_name = random.choice(self.variables)
+                    return Node.Node(var_name, successors=[], name=var_name)
+                else:
+                    const_value = random.choice(CONSTANT)
+                    return Node.Node(const_value, successors=[], name=str(const_value))
 
     def computeFitness(self, get_pred=False):
         """
         Compute fitness by evaluating the expression represented by self.root.
         Uses self.xTrain as input variables and self.yTrain as target.
         """
-
-        if self.root is None:
-            return None
-
         # Get expression string from the root node (e.g. "add(x0, multiply(x1, 3.14))")
         expression = str(self.root)  # uses __str__ -> long_name
 
@@ -106,10 +105,9 @@ class Individual:
 
             # Check for NaNs or Infs in prediction
             if np.isnan(y_pred).any() or np.isinf(y_pred).any():
-                self.fitness = float('inf')
-            else:
-                # Mean Squared Error as fitness
-                self.fitness = float(np.mean((self.yTrain - y_pred) ** 2))
+                raise ValueError("y_pred contains NaN or Inf")
+
+            self.fitness = float(np.mean((self.yTrain - y_pred) ** 2))
 
             if get_pred:
                 return y_pred
@@ -126,32 +124,32 @@ class Individual:
         Clone of the individual
         """
         newIndividual = Individual(self.maxDepth, self.xTrain, self.yTrain, self.individualAttempts)
-        newIndividual.root = self.root.clone() if self.root else None
+        newIndividual.root = self.root.clone() if self.root is not None else None
         newIndividual.fitness = self.fitness
         return newIndividual
-    
-    def getAllNodes(self):
+
+    def getAllNodes(self, node=None, parent=None, isLeft=None, depth=0):
         """
-        Get all nodes in the individual as (node, parent, index, depth) tuples.
+        Get all nodes in the individual as (node, parent, isLeft, depth) tuples.
         """
-        if self.root is None:
-            return []
-
-        nodes = []
-
-        def traverse(node, parent=None, index=None, depth=0):
-            nodes.append((node, parent, index, depth))
-            for idx, child in enumerate(node.successors):
-                traverse(child, node, idx, depth + 1)
-
-        traverse(self.root)
-        return nodes
-    
-    def getIndividualHeight(self, node):
         if node is None:
-            return 0
-        left_height = self.getIndividualHeight(node.successors[0]) if node.successors else 0
-        right_height = self.getIndividualHeight(node.successors[1]) if node.successors else 0
+            node = self.root
+        nodes = [(node, parent, isLeft, depth)]
+
+        # Recurse for each actual successor
+        for i, child in enumerate(node.successors):
+            if child is not None:
+                nodes.extend(self.getAllNodes(child, node, i == 0, depth + 1))
+
+        return nodes
+
+    def getIndividualHeight(self, node):
+        if node is None or not node.successors:
+            return 1  # leaf node counts as height 1
+
+        left_height = self.getIndividualHeight(node.successors[0]) if len(node.successors) > 0 else 0
+        right_height = self.getIndividualHeight(node.successors[1]) if len(node.successors) > 1 else 0
+
         return 1 + max(left_height, right_height)
     
     def mutate(self):
@@ -181,9 +179,10 @@ class Individual:
         """
         nodes = self.getAllNodes()  # Each tuple: (node, parent, is_left, depth)
         attempts = self.individualAttempts
+        isValid = False
 
-        while attempts > 0:
-            node_to_mutate, parent, isLeft, nodeDepth = random.choice(nodes)
+        while attempts > 0 and not isValid:
+            oldIndividual, parent, isLeft, nodeDepth = random.choice(nodes)
 
             remainingDepth = self.maxDepth - nodeDepth
             newIndividual = self.generateRandomIndividual(
@@ -193,27 +192,32 @@ class Individual:
 
             # Store the original reference for potential revert
             if parent is None:
-                oldIndividual = self.root
                 self.root = newIndividual
             elif isLeft:
-                oldIndividual = parent.successors[0]
-                parent.successors[0] = newIndividual
+                succ = parent.successors
+                succ[0] = newIndividual
+                parent.successors = succ
             else:
-                oldIndividual = parent.successors[1]
-                parent.successors[1] = newIndividual
+                succ = parent.successors
+                succ[1] = newIndividual
+                parent.successors = succ
 
             # Check fitness
             self.computeFitness()
             if self.fitness != np.inf:
-                return  # Successful mutation, exit early
-
-            # Revert if invalid
-            if parent is None:
-                self.root = oldIndividual
-            elif isLeft:
-                parent.successors[0] = oldIndividual
+                isValid = True
             else:
-                parent.successors[1] = oldIndividual
+                if parent is None:
+                    self.root = oldIndividual
+                elif isLeft:
+                    succ = parent.successors
+                    succ[0] = oldIndividual
+                    parent.successors = succ
+                else:
+                    succ = parent.successors
+                    succ[1] = oldIndividual
+                    parent.successors = succ
+
 
             attempts -= 1
 
@@ -227,20 +231,14 @@ class Individual:
         
         node, _, _, _ = random.choice(nodes)
         
-        # Only mutate function nodes (not constants or variables)
-        if node.is_leaf:
-            return  # skip leaf mutation here (or handle constants separately)
-        
         if node.arity == 2:
             new_func = random.choice(po.OPERATORS_BINARY)
         elif node.arity == 1:
             new_func = random.choice(po.OPERATORS_UNARY)
         else:
             return  # No mutation for unusual arity
-
-        # Update function and name
-        node._func = lambda *args, **kwargs: new_func(*args)
-        node._str = getattr(new_func, "__name__", str(new_func))
+        
+        node.value = new_func
 
         self.computeFitness()
 
@@ -259,35 +257,27 @@ class Individual:
         # Swap first and second successors
         succ = node.successors
         node.successors = [succ[1], succ[0]]
-        
+
         self.computeFitness()
 
     def promoteChild(self):
         """
-        Replace a randomly selected child with one of its sub-childs.
+        Replace a randomly selected node with one of its children (if any).
         """
         nodes = self.getAllNodes()
+        attempts = self.individualAttempts
         if not nodes:
             return
-        
-        attempts = self.individualAttempts
-        while attempts > 0:
-            node, parent, idx, _ = random.choice(nodes)
-            
-            # Find internal nodes (non-leaf with at least one child)
-            if not node.is_leaf and node.successors:
-                # Choose one of the node's children to "hoist"
-                chosen_child = random.choice(node.successors)
-                
-                # Replace the original node with the chosen child
-                if parent is None:
-                    self.root = chosen_child
-                else:
-                    parent.successors[idx] = chosen_child
-                break
-            
-            attempts -= 1
 
+        node, _, _, _ = random.choice(nodes)
+        while attempts > 0 and node.successors is not None:
+            attempts -= 1
+            node, _, _, _ = random.choice(nodes)
+
+        if attempts <= 0:
+            return
+        
+        self.root = node  # Promote the selected node to root
         self.computeFitness()
 
     def replaceWithConstant(self):
@@ -303,7 +293,7 @@ class Individual:
         valid_collapse_found = False
 
         while attempts > 0 and not valid_collapse_found:
-            node, parent, idx, _ = random.choice(nodes)
+            node, parent, isLeft, _ = random.choice(nodes)
 
             # Only collapse operator nodes (arity >= 1)
             if node.arity == 0:
@@ -321,15 +311,19 @@ class Individual:
                 collapsed_value = 0.0
 
             # Create new constant node
-            new_node = Node.Node(collapsed_value)
+            new_node = Node.Node(collapsed_value, successors=[], name='constant')
 
             # Replace node in parent or at root
             if parent is None:
                 self.root = new_node
+            elif isLeft:
+                succ = parent.successors
+                succ[0] = new_node
+                parent.successors = succ
             else:
-                successors_copy = parent.successors
-                successors_copy[idx] = new_node
-                parent.successors = successors_copy
+                succ = parent.successors
+                succ[1] = new_node
+                parent.successors = succ
 
             self.computeFitness()
 
@@ -339,10 +333,14 @@ class Individual:
                 # Revert change if invalid
                 if parent is None:
                     self.root = node
+                elif isLeft:
+                    succ = parent.successors
+                    succ[0] = node
+                    parent.successors = succ
                 else:
-                    successors_copy = parent.successors
-                    successors_copy[idx] = node
-                    parent.successors = successors_copy
+                    succ = parent.successors
+                    succ[1] = node
+                    parent.successors = succ
 
             attempts -= 1
 
@@ -368,8 +366,8 @@ class Individual:
         isSwappable = False
 
         while attempts > 0 and not isSwappable:
-            node1, parent1, idx1, depth1 = random.choice(nodes1)
-            node2, parent2, idx2, depth2 = random.choice(nodes2)
+            node1, parent1, isLeft1, depth1 = random.choice(nodes1)
+            node2, parent2, isLeft2, depth2 = random.choice(nodes2)
 
             height1 = offspring1.getIndividualHeight(node1)
             height2 = offspring2.getIndividualHeight(node2)
@@ -383,18 +381,26 @@ class Individual:
                 # Swap in offspring1
                 if parent1 is None:
                     offspring1.root = subtree2
+                elif isLeft1:
+                    succ = parent1.successors
+                    succ[0] = subtree2
+                    parent1.successors = succ
                 else:
-                    succs = parent1.successors
-                    succs[idx1] = subtree2
-                    parent1.successors = succs
+                    succ = parent1.successors
+                    succ[1] = subtree2
+                    parent1.successors = succ
 
                 # Swap in offspring2
                 if parent2 is None:
                     offspring2.root = subtree1
+                elif isLeft2:
+                    succ = parent2.successors
+                    succ[0] = subtree1
+                    parent2.successors = succ
                 else:
-                    succs = parent2.successors
-                    succs[idx2] = subtree1
-                    parent2.successors = succs
+                    succ = parent2.successors
+                    succ[1] = subtree1
+                    parent2.successors = succ
 
                 # Compute fitness for both offspring
                 offspring1.computeFitness()
@@ -402,21 +408,30 @@ class Individual:
 
                 if offspring1.fitness != np.inf and offspring2.fitness != np.inf:
                     isSwappable = True
+                    break  # Valid swap, exit loop
                 else:
                     # Revert if invalid
                     if parent1 is None:
                         offspring1.root = node1
+                    elif isLeft1:
+                        succ = parent1.successors
+                        succ[0] = node1
+                        parent1.successors = succ
                     else:
-                        succs = parent1.successors
-                        succs[idx1] = node1
-                        parent1.successors = succs
+                        succ = parent1.successors
+                        succ[1] = node1
+                        parent1.successors = succ
 
                     if parent2 is None:
                         offspring2.root = node2
+                    elif isLeft2:
+                        succ = parent2.successors
+                        succ[0] = node2
+                        parent2.successors = succ
                     else:
-                        succs = parent2.successors
-                        succs[idx2] = node2
-                        parent2.successors = succs
+                        succ = parent2.successors
+                        succ[1] = node2
+                        parent2.successors = succ
 
             attempts -= 1
 
@@ -425,5 +440,74 @@ class Individual:
 
         return offspring1, offspring2
     
+    def size(self):
+        """
+        Compute the size of the individual (number of nodes).
+        """
+        def countNodes(node):
+            if node is None:
+                return 0
+            if not hasattr(node, 'successors') or not node.successors:
+                return 1
+            leftCount = countNodes(node.successors[0]) if len(node.successors) > 0 else 0
+            rightCount = countNodes(node.successors[1]) if len(node.successors) > 1 else 0
+            return 1 + leftCount + rightCount
+
+        return countNodes(self.root)
+
     def __str__(self):
         return self.root.__str__() if self.root is not None else ""
+    
+    def plot(self):
+        """
+        Plot the expression tree of the individual.
+        Auto-scales spacing depending on tree depth.
+        """
+
+        def tree_depth(node):
+            if node is None or node.is_leaf:
+                return 1
+            return 1 + max(tree_depth(c) for c in node.successors)
+
+        def draw_node(node, x, y, dx, dy):
+            if node is None:
+                return
+
+            text = node.short_name
+            fontsize = 11
+            bbox = dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="black")
+
+            # Style constants vs variables vs operators
+            if node.is_leaf:
+                if node.short_name.replace(".", "", 1).isdigit():
+                    bbox = dict(boxstyle="circle", edgecolor="black", facecolor="lightgreen")  # constant
+                else:
+                    bbox = dict(boxstyle="circle", edgecolor="black", facecolor="tomato")  # variable
+            else:
+                bbox = dict(boxstyle="round,pad=0.3", facecolor="lightblue", edgecolor="black")  # operator
+                fontsize += 1
+
+            # Draw this node
+            plt.text(x, y, text, ha="center", va="center", fontsize=fontsize, bbox=bbox)
+
+            # Draw children
+            if node.arity == 2:
+                plt.plot([x, x - dx], [y, y - dy], color="black")
+                draw_node(node.successors[0], x - dx, y - dy, dx / 2, dy)
+
+                plt.plot([x, x + dx], [y, y - dy], color="black")
+                draw_node(node.successors[1], x + dx, y - dy, dx / 2, dy)
+
+            elif node.arity == 1:
+                plt.plot([x, x], [y, y - dy], color="black")
+                draw_node(node.successors[0], x, y - dy, dx / 2, dy)
+
+        depth = tree_depth(self.root)
+        dx = 2 ** (depth + 1)   # horizontal spacing grows with depth
+        dy = 2                  # vertical spacing (fixed)
+
+        plt.figure(figsize=(max(15, dx), depth * 2.5))
+        plt.axis("off")
+        plt.title("Expression Tree", fontsize=14)
+        draw_node(self.root, 0, 0, dx, dy)
+        plt.show()

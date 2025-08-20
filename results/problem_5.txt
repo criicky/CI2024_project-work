@@ -1,0 +1,9 @@
+Generations:  86%|████████▌ | 857/1000 [01:12<00:09, 14.70it/s]Gen 855 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 903/1000 [01:15<00:05, 17.62it/s]Gen 900 | Best fitness: 0.000000 | Temp: 0.395 | MutRate: 0.397 | Formula: sin(sinh(log2(acos(cos(1)))))
+Generations:  90%|█████████ | 905/1000 [01:15<00:06, 13.97it/s]Gen 905 - Full stagnation: refreshing islands and reheating
+Generations:  96%|█████████▌| 956/1000 [01:18<00:03, 14.62it/s]Gen 955 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [01:21<00:00, 12.27it/s]
+Gen 1000 | Best fitness: 0.000000 | Temp: 0.395 | MutRate: 0.397 | Formula: sin(sinh(log2(acos(cos(1)))))
+Best Formula: sin(sinh(log2(acos(cos(1)))))
+Train fitness: 4.940668359365491e-18
+Test fitness: 7.047807318090166e-18

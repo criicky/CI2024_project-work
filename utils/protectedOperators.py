@@ -165,19 +165,19 @@ OPERATORS_UNARY = {
     'sinh' : protected_sinh,
     'cosh' : protected_cosh,
     'tanh' : protected_tanh,
-    'square' : np.square,
+    'sqr' : np.square,
     'cbrt' : np.cbrt,
-    'reciprocal' : protected_reciprocal,
+    'rec' : protected_reciprocal,
 }
 
 OPERATORS_BINARY = {
     'add' : np.add,
-    'subtract' : np.subtract,
-    'multiply' : np.multiply,
-    'divide' : protected_divide,
-    'power' : protected_power,
-    'maximum' : np.maximum,
-    'minimum' : np.minimum,
+    'sub' : np.subtract,
+    'mul' : np.multiply,
+    'div' : protected_divide,
+    'pow' : protected_power,
+    'max' : np.maximum,
+    'min' : np.minimum,
     'mod' : protected_mod
 }
 

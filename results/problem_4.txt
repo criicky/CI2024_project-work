@@ -1,0 +1,10 @@
+Generations:  70%|███████   | 700/1000 [04:50<01:19,  3.78it/s]Gen 700 | Best fitness: 0.064891 | Temp: 0.941 | MutRate: 0.493 | Formula: max(add(cos(cos(cos(add(cos(max(x0, cbrt(0))), add(cos(3.14159), cos(cos(3.14159))))))), add(add(cos(cos(log2(0.693147))), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1))))), add(sub(cos(x1), 3.14159), cos(x1)))
+Generations:  79%|███████▉  | 791/1000 [05:10<00:44,  4.65it/s]Gen 791 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [05:12<00:45,  4.43it/s]Gen 800 | Best fitness: 0.047398 | Temp: 0.817 | MutRate: 0.476 | Formula: add(cos(x1), add(cos(x1), add(add(cos(max(sin(acos(mul(sub(pow(mod(0, x0), x1), x1), sub(log(add(0.693147, 3.14159)), pow(x1, max(x0, 0)))))), min(tanh(x0), add(sinh(neg(acos(x0))), x1)))), 1), add(add(cos(x1), cos(x1)), add(add(cos(x1), add(cos(x1), add(cos(cos(cos(1))), 1))), cos(x1))))))
+Generations:  85%|████████▌ | 851/1000 [05:21<00:24,  6.03it/s]Gen 851 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 901/1000 [05:30<00:17,  5.56it/s]Gen 900 | Best fitness: 0.030811 | Temp: 0.364 | MutRate: 0.389 | Formula: add(cos(cos(sinh(pow(sub(tanh(x0), cos(1)), add(1, add(cos(x1), cos(cos(x1)))))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
+Generations: 100%|██████████| 1000/1000 [05:46<00:00,  2.89it/s]
+Gen 1000 | Best fitness: 0.024827 | Temp: 0.048 | MutRate: 0.236 | Formula: add(cos(cos(sinh(pow(div(min(sub(max(x1, x1), x1), x0), abs(3.14159)), add(add(1.41421, 1), abs(3.14159)))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
+Best Formula: add(cos(cos(sinh(pow(div(min(sub(max(x1, x1), x1), x0), abs(3.14159)), add(add(1.41421, 1), abs(3.14159)))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
+Train fitness: 0.02482697337557385
+Test fitness: 0.024403155048952324

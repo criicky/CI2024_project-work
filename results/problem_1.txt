@@ -1,0 +1,56 @@
+
+Problem 1
+Generations:   8%|▊         | 76/1000 [00:03<00:42, 21.58it/s]
+Gen 73 - Full stagnation: refreshing islands and reheating
+Generations:  11%|█         | 106/1000 [00:04<00:41, 21.69it/s]
+Gen 100 | Best fitness: 0.000000 | Temp: 0.568 | MutRate: 0.435 | Formula: sin(x0)
+Generations:  14%|█▎        | 136/1000 [00:06<00:40, 21.17it/s]
+Gen 133 - Full stagnation: refreshing islands and reheating
+Generations:  20%|█▉        | 199/1000 [00:09<00:36, 21.81it/s]
+Gen 193 - Full stagnation: refreshing islands and reheating
+Generations:  21%|██        | 208/1000 [00:09<00:36, 21.55it/s]
+Gen 200 | Best fitness: 0.000000 | Temp: 0.851 | MutRate: 0.480 | Formula: sin(x0)
+Generations:  26%|██▌       | 259/1000 [00:11<00:33, 22.40it/s]
+Gen 253 - Full stagnation: refreshing islands and reheating
+Generations:  31%|███       | 308/1000 [00:13<00:28, 24.17it/s]
+Gen 300 | Best fitness: 0.000000 | Temp: 0.379 | MutRate: 0.393 | Formula: sin(x0)
+Generations:  31%|███▏      | 314/1000 [00:14<00:33, 20.40it/s]
+Gen 313 - Full stagnation: refreshing islands and reheating
+Generations:  37%|███▋      | 374/1000 [00:16<00:25, 24.99it/s]
+Gen 373 - Full stagnation: refreshing islands and reheating
+Generations:  41%|████      | 407/1000 [00:18<00:27, 21.46it/s]
+Gen 400 | Best fitness: 0.000000 | Temp: 0.568 | MutRate: 0.435 | Formula: sin(x0)
+Generations:  44%|████▎     | 437/1000 [00:19<00:24, 23.16it/s]
+Gen 433 - Full stagnation: refreshing islands and reheating
+Generations:  50%|████▉     | 499/1000 [00:22<00:22, 22.67it/s]
+Gen 493 - Full stagnation: refreshing islands and reheating
+Generations:  51%|█████     | 507/1000 [00:23<00:28, 17.08it/s]
+Gen 500 | Best fitness: 0.000000 | Temp: 0.851 | MutRate: 0.480 | Formula: sin(x0)
+Generations:  56%|█████▌    | 560/1000 [00:25<00:19, 23.14it/s]
+Gen 553 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 603/1000 [00:27<00:16, 24.54it/s]
+Gen 600 | Best fitness: 0.000000 | Temp: 0.379 | MutRate: 0.393 | Formula: sin(x0)
+Generations:  62%|██████▏   | 618/1000 [00:28<00:19, 19.88it/s]
+Gen 613 - Full stagnation: refreshing islands and reheating
+Generations:  68%|██████▊   | 676/1000 [00:30<00:13, 23.42it/s]
+Gen 673 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 703/1000 [00:32<00:13, 22.62it/s]
+Gen 700 | Best fitness: 0.000000 | Temp: 0.568 | MutRate: 0.435 | Formula: sin(x0)
+Generations:  74%|███████▍  | 739/1000 [00:33<00:11, 22.85it/s]
+Gen 733 - Full stagnation: refreshing islands and reheating
+Generations:  80%|███████▉  | 797/1000 [00:36<00:09, 22.08it/s]
+Gen 793 - Full stagnation: refreshing islands and reheating
+Gen 800 | Best fitness: 0.000000 | Temp: 0.851 | MutRate: 0.480 | Formula: sin(x0)
+Generations:  86%|████████▌ | 857/1000 [00:39<00:06, 23.38it/s]
+Gen 853 - Full stagnation: refreshing islands and reheating
+Generations:  91%|█████████ | 907/1000 [00:41<00:03, 23.80it/s]
+Gen 900 | Best fitness: 0.000000 | Temp: 0.379 | MutRate: 0.393 | Formula: sin(x0)
+Generations:  92%|█████████▏| 916/1000 [00:41<00:03, 22.04it/s]
+Gen 913 - Full stagnation: refreshing islands and reheating
+Generations:  98%|█████████▊| 977/1000 [00:44<00:01, 21.35it/s]
+Gen 973 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [00:45<00:00, 21.93it/s]
+Gen 1000 | Best fitness: 0.000000 | Temp: 0.568 | MutRate: 0.435 | Formula: sin(x0)
+Best Formula: sin(x0)
+Train fitness: 6.658214950595873e-34
+Test fitness: 8.217301096052206e-34
