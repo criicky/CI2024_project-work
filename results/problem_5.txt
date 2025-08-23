@@ -7,3 +7,59 @@ Gen 1000 | Best fitness: 0.000000 | Temp: 0.395 | MutRate: 0.397 | Formula: sin(
 Best Formula: sin(sinh(log2(acos(cos(1)))))
 Train fitness: 4.940668359365491e-18
 Test fitness: 7.047807318090166e-18
+
+
+Problem 5
+Generations:  10%|█         | 100/1000 [00:34<04:00,  3.75it/s]
+Gen 100 | Best fitness: 0.000000 | Temp: 0.133 | MutRate: 0.303 | Formula: log10(acos(cos(-1)))
+Generations:  11%|█         | 108/1000 [00:37<04:12,  3.53it/s]
+Gen 109 - Full stagnation: refreshing islands and reheating
+Generations:  17%|█▋        | 168/1000 [00:58<04:06,  3.37it/s]
+Gen 169 - Full stagnation: refreshing islands and reheating
+Generations:  20%|██        | 200/1000 [01:13<06:22,  2.09it/s]
+Gen 200 | Best fitness: 0.000000 | Temp: 0.524 | MutRate: 0.426 | Formula: log10(acos(cos(-1)))
+Generations:  23%|██▎       | 229/1000 [01:24<04:49,  2.66it/s]
+Gen 229 - Full stagnation: refreshing islands and reheating
+Generations:  29%|██▉       | 288/1000 [01:46<03:41,  3.21it/s]
+Gen 289 - Full stagnation: refreshing islands and reheating
+Generations:  30%|███       | 300/1000 [01:51<04:53,  2.38it/s]
+Gen 300 | Best fitness: 0.000000 | Temp: 0.785 | MutRate: 0.471 | Formula: log10(acos(cos(-1)))
+Generations:  35%|███▍      | 348/1000 [02:08<03:23,  3.20it/s]
+Gen 349 - Full stagnation: refreshing islands and reheating
+Generations:  40%|████      | 400/1000 [02:27<03:06,  3.21it/s]
+Gen 400 | Best fitness: 0.000000 | Temp: 0.350 | MutRate: 0.385 | Formula: log10(acos(cos(-1)))
+Generations:  41%|████      | 408/1000 [02:29<03:01,  3.26it/s]
+Gen 409 - Full stagnation: refreshing islands and reheating
+Generations:  47%|████▋     | 468/1000 [02:50<02:43,  3.26it/s]
+Gen 469 - Full stagnation: refreshing islands and reheating
+Generations:  50%|█████     | 500/1000 [03:01<02:47,  2.99it/s]
+Gen 500 | Best fitness: 0.000000 | Temp: 0.524 | MutRate: 0.426 | Formula: log10(acos(cos(-1)))
+Generations:  53%|█████▎    | 528/1000 [03:10<02:32,  3.09it/s]
+Gen 529 - Full stagnation: refreshing islands and reheating
+Generations:  59%|█████▉    | 588/1000 [03:31<02:03,  3.33it/s]
+Gen 589 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 600/1000 [03:36<02:32,  2.63it/s]
+Gen 600 | Best fitness: 0.000000 | Temp: 0.785 | MutRate: 0.471 | Formula: log10(acos(cos(-1)))
+Generations:  67%|██████▋   | 668/1000 [03:57<01:37,  3.41it/s]
+Gen 669 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 700/1000 [04:09<01:35,  3.15it/s]
+Gen 700 | Best fitness: 0.000000 | Temp: 0.524 | MutRate: 0.426 | Formula: min(pow(pow(0, exp(abs(asin(x0)))), 1.61803), mul(log(acos(cos(rec(1)))), mod(log10(mod(rec(3.14159), log10(add(1, cos(max(log(cosh(1)), add(x0, min(x0, x0)))))))), cbrt(asin(rec(acos(0.693147)))))))
+Generations:  73%|███████▎  | 729/1000 [04:17<01:32,  2.94it/s]
+Gen 729 - Full stagnation: refreshing islands and reheating
+Generations:  79%|███████▉  | 789/1000 [04:38<01:14,  2.82it/s]
+Gen 789 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [04:42<01:14,  2.68it/s]
+Gen 800 | Best fitness: 0.000000 | Temp: 0.785 | MutRate: 0.471 | Formula: min(pow(pow(0, exp(abs(asin(x0)))), 1.61803), mul(log(acos(cos(rec(1)))), mod(log10(mod(rec(3.14159), log10(add(1, cos(max(log(cosh(1)), add(x0, min(x0, x0)))))))), cbrt(asin(rec(acos(0.693147)))))))
+Generations:  85%|████████▍ | 848/1000 [04:58<00:47,  3.21it/s]
+Gen 849 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 900/1000 [05:16<00:35,  2.85it/s]
+Gen 900 | Best fitness: 0.000000 | Temp: 0.350 | MutRate: 0.385 | Formula: min(pow(pow(0, exp(abs(asin(x0)))), 1.61803), mul(log(acos(cos(rec(1)))), mod(log10(mod(rec(3.14159), log10(add(1, cos(max(log(cosh(1)), add(x0, min(x0, x0)))))))), cbrt(asin(rec(acos(0.693147)))))))
+Generations:  91%|█████████ | 908/1000 [05:19<00:29,  3.12it/s]
+Gen 909 - Full stagnation: refreshing islands and reheating
+Generations:  98%|█████████▊| 980/1000 [05:44<00:06,  2.87it/s]
+Gen 980 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [05:52<00:00,  2.84it/s]
+Gen 1000 | Best fitness: 0.000000 | Temp: 0.654 | MutRate: 0.450 | Formula: rec(sqr(sub(mul(max(sqr(asin(pow(log10(max(max(1, x1), sinh(-1))), div(div(mod(1, x0), cos(2)), 2)))), x0), max(sin(x1), sub(acos(x1), x1))), x0)))
+Best Formula: rec(sqr(sub(mul(max(sqr(asin(pow(log10(max(max(1, x1), sinh(-1))), div(div(mod(1, x0), cos(2)), 2)))), x0), max(sin(x1), sub(acos(x1), x1))), x0)))
+Train fitness: 5.4810462118825405e-18
+Test fitness: 5.786578949053965e-18

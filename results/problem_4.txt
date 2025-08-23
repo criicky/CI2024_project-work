@@ -1,10 +1,46 @@
-Generations:  70%|███████   | 700/1000 [04:50<01:19,  3.78it/s]Gen 700 | Best fitness: 0.064891 | Temp: 0.941 | MutRate: 0.493 | Formula: max(add(cos(cos(cos(add(cos(max(x0, cbrt(0))), add(cos(3.14159), cos(cos(3.14159))))))), add(add(cos(cos(log2(0.693147))), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1))))), add(sub(cos(x1), 3.14159), cos(x1)))
-Generations:  79%|███████▉  | 791/1000 [05:10<00:44,  4.65it/s]Gen 791 - Full stagnation: refreshing islands and reheating
-Generations:  80%|████████  | 800/1000 [05:12<00:45,  4.43it/s]Gen 800 | Best fitness: 0.047398 | Temp: 0.817 | MutRate: 0.476 | Formula: add(cos(x1), add(cos(x1), add(add(cos(max(sin(acos(mul(sub(pow(mod(0, x0), x1), x1), sub(log(add(0.693147, 3.14159)), pow(x1, max(x0, 0)))))), min(tanh(x0), add(sinh(neg(acos(x0))), x1)))), 1), add(add(cos(x1), cos(x1)), add(add(cos(x1), add(cos(x1), add(cos(cos(cos(1))), 1))), cos(x1))))))
-Generations:  85%|████████▌ | 851/1000 [05:21<00:24,  6.03it/s]Gen 851 - Full stagnation: refreshing islands and reheating
-Generations:  90%|█████████ | 901/1000 [05:30<00:17,  5.56it/s]Gen 900 | Best fitness: 0.030811 | Temp: 0.364 | MutRate: 0.389 | Formula: add(cos(cos(sinh(pow(sub(tanh(x0), cos(1)), add(1, add(cos(x1), cos(cos(x1)))))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
-Generations: 100%|██████████| 1000/1000 [05:46<00:00,  2.89it/s]
-Gen 1000 | Best fitness: 0.024827 | Temp: 0.048 | MutRate: 0.236 | Formula: add(cos(cos(sinh(pow(div(min(sub(max(x1, x1), x1), x0), abs(3.14159)), add(add(1.41421, 1), abs(3.14159)))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
-Best Formula: add(cos(cos(sinh(pow(div(min(sub(max(x1, x1), x1), x0), abs(3.14159)), add(add(1.41421, 1), abs(3.14159)))))), add(add(cos(1), add(add(1, cos(x1)), add(cos(x1), add(cos(x1), add(cos(x1), cos(x1)))))), add(1, add(cos(x1), cos(x1)))))
-Train fitness: 0.02482697337557385
-Test fitness: 0.024403155048952324
+Problem 4
+Generations:  10%|█         | 100/1000 [01:40<21:35,  1.44s/it]
+Gen 100 | Best fitness: 0.079328 | Temp: 0.133 | MutRate: 0.303 | Formula: add(add(cos(x1), cos(x1)), add(add(add(2.71828, add(cos(x1), cos(x1))), add(add(add(cos(x1), div(mod(atan(rec(acos(x1))), max(sin(x1), sub(x1, sub(x0, 1)))), cosh(2.30259))), log10(2.71828)), cos(x1))), cos(x1)))
+Generations:  19%|█▉        | 192/1000 [03:20<14:22,  1.07s/it]
+Gen 193 - Full stagnation: refreshing islands and reheating
+Generations:  20%|██        | 200/1000 [03:30<16:06,  1.21s/it]
+Gen 200 | Best fitness: 0.011650 | Temp: 0.851 | MutRate: 0.480 | Formula: add(add(cos(x1), cos(x1)), add(add(add(2.71828, add(cos(x1), add(cos(x1), div(log10(cosh(2.30259)), cosh(2.30259))))), add(add(cos(x1), log10(2.71828)), add(cos(x1), div(mod(2.30259, sub(log10(tanh(sin(0.5))), x0)), cosh(2.30259))))), cos(x1)))
+Generations:  30%|███       | 300/1000 [05:39<13:50,  1.19s/it]
+Gen 300 | Best fitness: 0.006989 | Temp: 0.113 | MutRate: 0.291 | Formula: add(add(cos(x1), cos(x1)), add(add(add(2.71828, add(cos(x1), cos(x1))), add(add(cos(x1), log10(2.71828)), add(cos(x1), div(mod(cos(2.71828), sub(cos(log10(x1)), x0)), cosh(2.71828))))), cos(x1)))
+Generations:  33%|███▎      | 332/1000 [06:19<14:28,  1.30s/it]
+Gen 333 - Full stagnation: refreshing islands and reheating
+Generations:  40%|████      | 400/1000 [07:50<13:31,  1.35s/it]
+Gen 400 | Best fitness: 0.005535 | Temp: 0.253 | MutRate: 0.356 | Formula: add(add(cos(x1), cos(x1)), add(add(add(2.71828, add(cos(x1), cos(x1))), add(add(cos(x1), log10(2.71828)), add(cos(x1), div(mod(cos(2.71828), sub(cos(0), x0)), cosh(2.71828))))), cos(x1)))
+Generations:  50%|█████     | 500/1000 [10:10<12:23,  1.49s/it]
+Gen 500 | Best fitness: 0.005006 | Temp: 0.034 | MutRate: 0.215 | Formula: add(add(cos(x1), cos(x1)), add(add(add(2.71828, add(cos(x1), cos(x1))), add(add(cos(x1), log10(2.71828)), add(cos(x1), div(mod(log10(mod(cos(2.71828), div(x0, x0))), sub(cos(0), x0)), cosh(2.71828))))), cos(x1)))
+Generations:  51%|█████     | 506/1000 [10:19<12:15,  1.49s/it]
+Gen 507 - Full stagnation: refreshing islands and reheating
+Generations:  57%|█████▋    | 568/1000 [11:54<11:06,  1.54s/it]
+Gen 569 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 600/1000 [12:43<10:21,  1.55s/it]
+Gen 600 | Best fitness: 0.002886 | Temp: 0.524 | MutRate: 0.426 | Formula: add(add(cos(x1), cos(pow(cos(0), add(add(2.71828, cos(x1)), mod(x1, 2.71828))))), add(add(add(2.71828, add(cos(x1), cos(x1))), add(add(cos(x1), cos(x1)), add(cos(x1), div(mod(sub(atan(x0), x0), sub(cos(x1), x0)), cosh(2.71828))))), cos(x1)))
+Generations:  63%|██████▎   | 628/1000 [13:27<09:37,  1.55s/it]
+Gen 629 - Full stagnation: refreshing islands and reheating
+Generations:  69%|██████▉   | 689/1000 [15:08<08:56,  1.73s/it]
+Gen 690 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 700/1000 [15:27<08:44,  1.75s/it]
+Gen 700 | Best fitness: 0.000000 | Temp: 0.801 | MutRate: 0.473 | Formula: add(add(add(cos(x1), div(add(cos(sinh(mod(mod(min(mod(2, 3.14159), rec(0)), 1.73205), cbrt(2.71828)))), div(neg(x0), cosh(cos(2.71828)))), cosh(2.71828))), cos(x1)), add(add(add(2.71828, add(min(max(add(0.693147, cos(x1)), add(2.71828, cos(x1))), min(max(x1, exp(2.71828)), cos(x1))), cos(x1))), add(add(cos(x1), log10(2.71828)), cos(x1))), cos(x1)))
+Generations:  75%|███████▌  | 752/1000 [16:56<06:59,  1.69s/it]
+Gen 753 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [18:21<05:32,  1.66s/it]
+Gen 800 | Best fitness: 0.000000 | Temp: 0.379 | MutRate: 0.393 | Formula: add(add(add(cos(x1), div(add(cos(sinh(mod(mod(min(mod(2, 3.14159), rec(0)), 1.73205), cbrt(2.71828)))), div(neg(x0), cosh(cos(2.71828)))), cosh(2.71828))), cos(x1)), add(add(add(2.71828, add(min(max(add(0.693147, cos(x1)), add(2.71828, cos(x1))), min(max(x1, exp(2.71828)), cos(x1))), cos(x1))), add(add(cos(x1), log10(2.71828)), cos(x1))), cos(x1)))
+Generations:  81%|████████  | 812/1000 [18:42<05:20,  1.70s/it]
+Gen 813 - Full stagnation: refreshing islands and reheating
+Generations:  87%|████████▋ | 872/1000 [20:25<03:36,  1.69s/it]
+Gen 873 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 900/1000 [21:13<02:45,  1.65s/it]
+Gen 900 | Best fitness: 0.000000 | Temp: 0.568 | MutRate: 0.435 | Formula: add(add(add(cos(x1), div(add(cos(sinh(mod(mod(min(mod(2, 3.14159), rec(0)), 1.73205), cbrt(2.71828)))), div(neg(x0), cosh(cos(2.71828)))), cosh(2.71828))), cos(x1)), add(add(add(2.71828, add(min(max(add(0.693147, cos(x1)), add(2.71828, cos(x1))), min(max(x1, exp(2.71828)), cos(x1))), cos(x1))), add(add(cos(x1), log10(2.71828)), cos(x1))), cos(x1)))
+Generations:  93%|█████████▎| 932/1000 [22:09<01:58,  1.74s/it]
+Gen 933 - Full stagnation: refreshing islands and reheating
+Generations:  99%|█████████▉| 992/1000 [23:52<00:13,  1.68s/it]
+Gen 993 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [24:06<00:00,  1.45s/it]
+Gen 1000 | Best fitness: 0.000000 | Temp: 0.851 | MutRate: 0.480 | Formula: add(add(add(cos(x1), div(add(cos(sinh(mod(mod(min(mod(2, 3.14159), rec(0)), 1.73205), cbrt(2.71828)))), div(neg(x0), cosh(cos(2.71828)))), cosh(2.71828))), cos(x1)), add(add(add(2.71828, add(min(max(add(0.693147, cos(x1)), add(2.71828, cos(x1))), min(max(x1, exp(2.71828)), cos(x1))), cos(x1))), add(add(cos(x1), log10(2.71828)), cos(x1))), cos(x1)))
+Best Formula: add(add(add(cos(x1), div(add(cos(sinh(mod(mod(min(mod(2, 3.14159), rec(0)), 1.73205), cbrt(2.71828)))), div(neg(x0), cosh(cos(2.71828)))), cosh(2.71828))), cos(x1)), add(add(add(2.71828, add(min(max(add(0.693147, cos(x1)), add(2.71828, cos(x1))), min(max(x1, exp(2.71828)), cos(x1))), cos(x1))), add(add(cos(x1), log10(2.71828)), cos(x1))), cos(x1)))
+Train fitness: 5.900057707138566e-08
+Test fitness: 5.9398654290880356e-08

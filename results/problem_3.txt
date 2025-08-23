@@ -1,6 +1,48 @@
-Gen 800 | Best fitness: 16.793460 | Temp: 0.010 | MutRate: 0.200 | Formula: sub(sub(sub(sub(sub(sub(sub(sub(sub(sqr(x0), x2), add(max(x1, 0), 1.41421)), x1), x1), x2), min(sub(sub(sub(sinh(x1), add(x1, 1.73205)), sub(sqr(x0), x2)), add(x1, 1.73205)), neg(sub(sub(sub(sqr(x0), x1), add(max(x1, 1.73205), x1)), add(add(x1, x1), x2))))), sinh(x1)), log2(pow(cos(tanh(mod(x1, 1.73205))), add(sub(sub(sqr(1.41421), x1), x1), sqr(1.41421))))), mod(x1, x2))
-Generations:  90%|█████████ | 900/1000 [03:55<00:33,  2.96it/s]Gen 900 | Best fitness: 15.702193 | Temp: 0.010 | MutRate: 0.200 | Formula: sub(sub(sub(sub(sub(sub(sub(sub(sub(sqr(x0), x2), add(max(x1, 0), 1.73205)), x1), x1), x2), min(sub(sub(sub(sinh(x1), add(x1, sqr(1.41421))), sub(sqr(x0), x2)), add(x1, sqr(1.41421))), neg(sub(sub(sub(sqr(x0), x1), add(max(x1, 1.73205), x1)), add(add(x1, x1), x2))))), sinh(x1)), log2(pow(cos(tanh(mod(x1, sub(mod(x1, 1.73205), x1)))), add(sub(sub(sqr(1.41421), x1), x1), sqr(1.41421))))), mod(x1, x2))
-Generations: 100%|██████████| 1000/1000 [04:29<00:00,  3.71it/s]Gen 1000 | Best fitness: 11.755613 | Temp: 0.010 | MutRate: 0.200 | Formula: sub(sub(sub(sub(sub(sub(sub(sub(sub(sqr(x0), x2), add(x1, 1.73205)), mod(add(x1, 1.73205), sub(sinh(x1), add(x1, 1.73205)))), mod(sinh(x1), sub(sinh(x1), x1))), x2), min(sub(sub(sub(sinh(x1), add(x1, 1.73205)), sub(sqr(x0), x2)), x1), neg(sub(sub(sub(sqr(x0), add(x1, x1)), add(add(x1, 1.73205), x1)), add(add(1.41421, add(1.41421, x2)), x1))))), sinh(x1)), log2(pow(cos(tanh(mod(mod(x1, add(add(x1, 1.73205), add(x1, 1.73205))), 1.73205))), add(sub(sub(1.73205, mod(1.73205, mod(x1, tan(1.73205)))), x1), 1.73205)))), mod(x1, x2))
-Best Formula: sub(sub(sub(sub(sub(sub(sub(sub(sub(sqr(x0), x2), add(x1, 1.73205)), mod(add(x1, 1.73205), sub(sinh(x1), add(x1, 1.73205)))), mod(sinh(x1), sub(sinh(x1), x1))), x2), min(sub(sub(sub(sinh(x1), add(x1, 1.73205)), sub(sqr(x0), x2)), x1), neg(sub(sub(sub(sqr(x0), add(x1, x1)), add(add(x1, 1.73205), x1)), add(add(1.41421, add(1.41421, x2)), x1))))), sinh(x1)), log2(pow(cos(tanh(mod(mod(x1, add(add(x1, 1.73205), add(x1, 1.73205))), 1.73205))), add(sub(sub(1.73205, mod(1.73205, mod(x1, tan(1.73205)))), x1), 1.73205)))), mod(x1, x2))
-Train fitness: 11.755613249182678
-Test fitness: 1347.3862925139845
+Problem 3
+Generations:  10%|█         | 100/1000 [00:58<12:17,  1.22it/s]
+Gen 100 | Best fitness: 44.581900 | Temp: 0.133 | MutRate: 0.303 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), sub(2, x2))), mul(x1, min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(2, x1), add(x2, sub(x1, 2))), sqr(x1)), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  20%|█▉        | 197/1000 [02:36<13:42,  1.02s/it]
+Gen 197 - Full stagnation: refreshing islands and reheating
+Generations:  20%|██        | 200/1000 [02:39<13:04,  1.02it/s]
+Gen 200 | Best fitness: 16.309111 | Temp: 0.922 | MutRate: 0.490 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(min(x1, 2), add(x2, sub(x2, 2))), sqr(x1)), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  29%|██▊       | 287/1000 [04:24<14:41,  1.24s/it]
+Gen 288 - Full stagnation: refreshing islands and reheating
+Generations:  30%|███       | 300/1000 [04:41<14:18,  1.23s/it]
+Gen 300 | Best fitness: 12.548876 | Temp: 0.769 | MutRate: 0.468 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(sub(x1, 2)), sqr(div(x1, 2))))), add(sub(sub(min(x1, 0), add(x2, sub(x2, 2))), sqr(x1)), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  35%|███▍      | 348/1000 [05:40<14:11,  1.31s/it]
+Gen 348 - Full stagnation: refreshing islands and reheating
+Generations:  40%|████      | 400/1000 [06:45<11:33,  1.16s/it]
+Gen 400 | Best fitness: 2.028937 | Temp: 0.343 | MutRate: 0.383 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(x1, add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  43%|████▎     | 428/1000 [07:20<12:43,  1.34s/it]
+Gen 428 - Full stagnation: refreshing islands and reheating
+Generations:  49%|████▉     | 490/1000 [08:41<11:17,  1.33s/it]
+Gen 491 - Full stagnation: refreshing islands and reheating
+Generations:  50%|█████     | 500/1000 [08:54<10:48,  1.30s/it]
+Gen 500 | Best fitness: 0.000000 | Temp: 0.817 | MutRate: 0.476 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), sub(2, div(x2, 2)))), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(x1, add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  55%|█████▌    | 550/1000 [10:02<10:10,  1.36s/it]
+Gen 551 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 600/1000 [11:10<09:14,  1.39s/it]
+Gen 600 | Best fitness: 0.000000 | Temp: 0.364 | MutRate: 0.389 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  65%|██████▌   | 650/1000 [12:21<09:34,  1.64s/it]
+Gen 651 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 700/1000 [13:31<06:48,  1.36s/it]
+Gen 700 | Best fitness: 0.000000 | Temp: 0.364 | MutRate: 0.389 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  71%|███████   | 710/1000 [13:46<06:49,  1.41s/it]
+Gen 711 - Full stagnation: refreshing islands and reheating
+Generations:  77%|███████▋  | 770/1000 [15:11<05:00,  1.31s/it]
+Gen 771 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [15:52<04:32,  1.36s/it]
+Gen 800 | Best fitness: 0.000000 | Temp: 0.545 | MutRate: 0.430 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  83%|████████▎ | 831/1000 [16:34<04:00,  1.42s/it]
+Gen 831 - Full stagnation: refreshing islands and reheating
+Generations:  89%|████████▉ | 890/1000 [17:56<02:35,  1.41s/it]
+Gen 891 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 900/1000 [18:10<02:27,  1.48s/it]
+Gen 900 | Best fitness: 0.000000 | Temp: 0.817 | MutRate: 0.476 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Generations:  95%|█████████▌| 950/1000 [19:24<01:20,  1.61s/it]
+Gen 951 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [20:35<00:00,  1.24s/it]
+Gen 1000 | Best fitness: 0.000000 | Temp: 0.364 | MutRate: 0.389 | Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Best Formula: add(sub(sub(sub(sub(sqr(x0), x2), sqr(x1)), sub(sub(x1, sqr(x0)), 2)), mul(mul(x1, 2), min(sqr(x1), sqr(div(x1, 2))))), add(sub(sub(sub(x1, div(x2, 2)), add(x2, sub(x2, 2))), sqr(sqr(div(x1, 2)))), sqr(sub(x1, sqr(div(x1, 2))))))
+Train fitness: 5.637630732676799e-29
+Test fitness: 6.576629007103656e-29

@@ -30,3 +30,99 @@ Generations: 100%|██████████| 600/600 [04:43<00:00,  2.11it/
 Best Formula: sub(div(x1, sin(tanh(abs(sin(2.30259))))), mul(0.693147, x0))
 Train fitness: 1.9986870399550945e-05
 Test fitness: 1.896258226186932e-05
+
+Problem 6
+Generations:  10%|█         | 100/1000 [00:58<11:20,  1.32it/s]
+Gen 100 | Best fitness: 0.198671 | Temp: 0.133 | MutRate: 0.303 | Formula: log2(div(min(min(max(pow(max(x0, pow(3.14159, pow(2.71828, pow(2.71828, x1)))), x1), x1), pow(max(3.14159, x0), 3.14159)), pow(2.71828, x1)), max(x0, rec(cosh(x0)))))
+Generations:  20%|██        | 200/1000 [02:26<11:23,  1.17it/s]
+Gen 200 | Best fitness: 0.052059 | Temp: 0.018 | MutRate: 0.200 | Formula: sub(x1, max(neg(div(sub(x1, x0), 1.73205)), neg(div(sub(x1, sub(log2(exp(min(pow(x0, 1), x0))), exp(min(pow(x1, 1), x0)))), 1.73205))))
+Generations:  27%|██▋       | 273/1000 [03:30<10:18,  1.18it/s]
+Gen 274 - Full stagnation: refreshing islands and reheating
+Generations:  30%|███       | 300/1000 [03:53<10:32,  1.11it/s]
+Gen 300 | Best fitness: 0.002718 | Temp: 0.580 | MutRate: 0.437 | Formula: sub(x1, max(neg(div(div(x0, 0), 1.73205)), neg(div(sub(x1, x0), sqrt(2)))))
+Generations:  33%|███▎      | 334/1000 [04:14<06:54,  1.61it/s]
+Gen 334 - Full stagnation: refreshing islands and reheating
+Generations:  39%|███▉      | 394/1000 [04:50<06:09,  1.64it/s]
+Gen 394 - Full stagnation: refreshing islands and reheating
+Generations:  40%|████      | 400/1000 [04:54<06:21,  1.57it/s]
+Gen 400 | Best fitness: 0.002718 | Temp: 0.868 | MutRate: 0.483 | Formula: sub(x1, max(neg(div(div(x0, 0), 1.73205)), neg(div(sub(x1, x0), sqrt(2)))))
+Generations:  49%|████▉     | 490/1000 [05:36<03:47,  2.25it/s]
+Gen 491 - Full stagnation: refreshing islands and reheating
+Generations:  50%|█████     | 500/1000 [05:41<03:58,  2.10it/s]
+Gen 500 | Best fitness: 0.000200 | Temp: 0.817 | MutRate: 0.476 | Formula: sub(x1, neg(div(sub(x1, x0), div(1.41421, sin(1.73205)))))
+Generations:  55%|█████▌    | 551/1000 [06:00<02:50,  2.63it/s]
+Gen 551 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 600/1000 [06:16<02:13,  3.01it/s]
+Gen 600 | Best fitness: 0.000200 | Temp: 0.364 | MutRate: 0.389 | Formula: sub(x1, neg(div(sub(x1, x0), div(1.41421, sin(1.73205)))))
+Generations:  61%|██████    | 611/1000 [06:20<02:12,  2.93it/s]
+Gen 611 - Full stagnation: refreshing islands and reheating
+Generations:  67%|██████▋   | 671/1000 [06:38<01:44,  3.16it/s]
+Gen 671 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 700/1000 [06:46<01:25,  3.50it/s]
+Gen 700 | Best fitness: 0.000200 | Temp: 0.545 | MutRate: 0.430 | Formula: sub(x1, neg(div(sub(x1, x0), div(1.41421, sin(1.73205)))))
+Generations:  78%|███████▊  | 781/1000 [07:07<00:56,  3.87it/s]
+Gen 781 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [07:13<01:10,  2.85it/s]
+Gen 800 | Best fitness: 0.000032 | Temp: 0.668 | MutRate: 0.452 | Formula: sub(x1, neg(div(sub(x1, x0), log2(2.71828))))
+Generations:  84%|████████▍ | 841/1000 [07:26<00:53,  2.95it/s]
+Gen 841 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 900/1000 [07:42<00:24,  4.08it/s]
+Gen 900 | Best fitness: 0.000032 | Temp: 0.298 | MutRate: 0.370 | Formula: sub(x1, neg(div(sub(x1, x0), log2(2.71828))))
+Generations:  90%|█████████ | 901/1000 [07:42<00:26,  3.76it/s]
+Gen 901 - Full stagnation: refreshing islands and reheating
+Generations:  96%|█████████▌| 961/1000 [07:59<00:12,  3.13it/s]
+Gen 961 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [08:09<00:00,  2.04it/s]
+Gen 1000 | Best fitness: 0.000032 | Temp: 0.446 | MutRate: 0.409 | Formula: sub(x1, neg(div(sub(x1, x0), log2(2.71828))))
+Best Formula: sub(x1, neg(div(sub(x1, x0), log2(2.71828))))
+Train fitness: 3.2326451645442544e-05
+Test fitness: 3.2253710230600695e-05
+
+Problem 6
+Generations:  10%|█         | 100/1000 [01:57<24:36,  1.64s/it]
+Gen 100 | Best fitness: 0.190413 | Temp: 0.133 | MutRate: 0.303 | Formula: sub(x1, mod(abs(sub(x1, sub(x1, sub(add(sub(x1, sub(add(x0, 0.693147), log10(0.5))), 0.693147), cbrt(sub(x1, x0)))))), mul(log10(add(sub(add(sub(x1, sub(add(x0, 0.693147), log10(0.5))), 0.693147), x1), min(sub(add(x0, 0.693147), sub(sub(x1, x1), log10(0.5))), x1))), atan(cosh(sub(neg(sub(x1, x0)), x1))))))
+Generations:  19%|█▉        | 188/1000 [04:09<16:37,  1.23s/it]
+Gen 189 - Full stagnation: refreshing islands and reheating
+Generations:  20%|██        | 200/1000 [04:25<18:10,  1.36s/it]
+Gen 200 | Best fitness: 0.000032 | Temp: 0.785 | MutRate: 0.471 | Formula: add(mul(0.693147, add(sub(x1, sub(add(x0, 0.693147), 0.693147)), 0)), x1)
+Generations:  30%|███       | 300/1000 [05:56<08:18,  1.40it/s]
+Gen 300 | Best fitness: 0.000024 | Temp: 0.104 | MutRate: 0.285 | Formula: add(mul(0.693147, add(sub(x1, add(x0, max(min(x1, max(0.693147, 0.693147)), 0.693147))), mul(0.693147, tanh(sub(div(x0, x0), sub(exp(-1), 2.71828)))))), x1)
+Generations:  35%|███▌      | 351/1000 [06:27<06:00,  1.80it/s]
+Gen 351 - Full stagnation: refreshing islands and reheating
+Generations:  40%|████      | 400/1000 [06:57<05:41,  1.76it/s]
+Gen 400 | Best fitness: 0.000001 | Temp: 0.364 | MutRate: 0.389 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  42%|████▏     | 415/1000 [07:05<05:29,  1.77it/s]
+Gen 416 - Full stagnation: refreshing islands and reheating
+Generations:  48%|████▊     | 475/1000 [07:40<04:18,  2.03it/s]
+Gen 476 - Full stagnation: refreshing islands and reheating
+Generations:  50%|█████     | 500/1000 [07:55<04:39,  1.79it/s]
+Gen 500 | Best fitness: 0.000001 | Temp: 0.603 | MutRate: 0.441 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  54%|█████▎    | 536/1000 [08:14<04:05,  1.89it/s]
+Gen 536 - Full stagnation: refreshing islands and reheating
+Generations:  60%|█████▉    | 596/1000 [08:46<03:44,  1.80it/s]
+Gen 596 - Full stagnation: refreshing islands and reheating
+Generations:  60%|██████    | 600/1000 [08:48<04:03,  1.64it/s]
+Gen 600 | Best fitness: 0.000001 | Temp: 0.904 | MutRate: 0.488 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  66%|██████▌   | 655/1000 [09:16<02:28,  2.32it/s]
+Gen 656 - Full stagnation: refreshing islands and reheating
+Generations:  70%|███████   | 700/1000 [09:38<02:17,  2.18it/s]
+Gen 700 | Best fitness: 0.000001 | Temp: 0.403 | MutRate: 0.399 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  72%|███████▏  | 715/1000 [09:45<02:05,  2.28it/s]
+Gen 716 - Full stagnation: refreshing islands and reheating
+Generations:  78%|███████▊  | 775/1000 [10:12<01:26,  2.60it/s]
+Gen 776 - Full stagnation: refreshing islands and reheating
+Generations:  80%|████████  | 800/1000 [10:24<01:28,  2.26it/s]
+Gen 800 | Best fitness: 0.000001 | Temp: 0.603 | MutRate: 0.441 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  84%|████████▎ | 835/1000 [10:39<01:14,  2.21it/s]
+Gen 836 - Full stagnation: refreshing islands and reheating
+Generations:  90%|████████▉ | 895/1000 [11:05<00:40,  2.58it/s]
+Gen 896 - Full stagnation: refreshing islands and reheating
+Generations:  90%|█████████ | 900/1000 [11:08<00:48,  2.06it/s]
+Gen 900 | Best fitness: 0.000001 | Temp: 0.904 | MutRate: 0.488 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Generations:  96%|█████████▌| 955/1000 [11:32<00:19,  2.35it/s]
+Gen 956 - Full stagnation: refreshing islands and reheating
+Generations: 100%|██████████| 1000/1000 [11:52<00:00,  1.40it/s]
+Gen 1000 | Best fitness: 0.000001 | Temp: 0.403 | MutRate: 0.399 | Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Best Formula: add(mul(atan(sqrt(0.693147)), sub(x1, x0)), x1)
+Train fitness: 9.959336374809917e-07
+Test fitness: 1.020927328534372e-06
