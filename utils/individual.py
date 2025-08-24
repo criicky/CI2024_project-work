@@ -306,7 +306,7 @@ class Individual:
                 eval_globals = {"np": np, "nan": np.nan, "inf": np.inf}
 
                 formula = eval(f"lambda x: {expression}", eval_globals)
-                collapsed_value = float(np.mean(formula(self.x_train)))
+                collapsed_value = float(np.mean(formula(self.xTrain)))
             except Exception:
                 collapsed_value = 0.0
 
