@@ -1,5 +1,4 @@
 import numpy as np
-import math
 import utils.protectedOperators as po
 
 def f1(x: np.ndarray) -> np.ndarray:
