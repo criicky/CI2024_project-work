@@ -164,3 +164,17 @@ Fitness evolution:
 
 ![alt text](images/n8.1.png)
 ![alt text](images/n8.2.png)
+
+## Conclusion
+
+During experimentation, we also explored applying normalization to the output values as a preprocessing step. This approach worked particularly well in problems with sparse outputs, where the target values varied widely across the dataset. In these cases, normalization helped stabilize the search process and guided the algorithm toward simpler, more accurate expressions. However, for problems where the outputs were very close to each other, normalization did not yield improvements. In fact, it often amplified noise and made it harder for the system to distinguish between good and bad solutions. For this reason, we ultimately stuck with the non-normalized version, as it produced better results overall across the different datasets.
+
+Another interesting observation was that the chosen limit of 1000 generations often turned out to be an overkill. In most cases, the algorithm was able to converge to a stable and accurate solution much earlier, typically around 200 generations on average. This suggests that future experiments could benefit from introducing adaptive stopping criteria, reducing unnecessary computation while still maintaining solution quality.
+
+## Contributors  
+
+Thanks to everyone who worked on this project:  
+
+| [![Riccardo Scanu](https://github.com/criicky.png?size=100)](https://github.com/criicky) | [![Marco Piasso](https://github.com/pios15.png?size=100)](https://github.com/pios15) | [![ChatGPT](https://github.com/openai.png?size=100)](https://chatgpt.com/)
+|---|---|---|
+| [Riccardo Scanu](https://github.com/criicky) | [Marco Piasso](https://github.com/pios15) | [ChatGPT](https://chatgpt.com/)
