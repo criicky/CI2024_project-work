@@ -175,6 +175,6 @@ Another interesting observation was that the chosen limit of 1000 generations of
 
 Thanks to everyone who worked on this project:  
 
-| [![Riccardo Scanu](https://github.com/criicky.png?size=100)](https://github.com/criicky) | [![Marco Piasso](https://github.com/pios15.png?size=100)](https://github.com/pios15) | [![ChatGPT](https://github.com/openai.png?size=100)](https://chatgpt.com/)
-|---|---|---|
+| [![Riccardo Scanu](https://github.com/criicky.png?size=100)](https://github.com/criicky) | [![Marco Piasso](https://github.com/pios15.png?size=100)](https://github.com/pios15) | <a href="https://chatgpt.com/"><img src="images/chatgpt_santino.png" alt="ChatGPT" width="100" height="100"></a>
+|:---:|:---:|:---:|
 | [Riccardo Scanu](https://github.com/criicky) | [Marco Piasso](https://github.com/pios15) | [ChatGPT](https://chatgpt.com/)
