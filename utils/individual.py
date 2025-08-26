@@ -1,10 +1,11 @@
 from platform import node
 import numpy as np
 import utils.node as Node
-from utils.draw import draw
 import utils.protectedOperators as po
 import random
 import matplotlib.pyplot as plt
+import networkx as nx
+import re
 
 CONSTANT = [
     np.pi,           # π ≈ 3.14159
@@ -458,56 +459,93 @@ class Individual:
     def __str__(self):
         return self.root.__str__() if self.root is not None else ""
     
-    def plot(self):
-        """
-        Plot the expression tree of the individual.
-        Auto-scales spacing depending on tree depth.
-        """
+    op_map = {
+        "neg": "−", "abs": "|x|", "sqrt": "√", "exp": "exp", "log": "ln",
+        "log2": "log₂", "log10": "log₁₀", "sin": "sin", "cos": "cos",
+        "tan": "tan", "asin": "arcsin", "acos": "arccos", "atan": "arctan",
+        "sinh": "sinh", "cosh": "cosh", "tanh": "tanh", "sqr": "²",
+        "cbrt": "∛", "rec": "1/x", "add": "+", "sub": "−", "mul": "×",
+        "div": "÷", "pow": "^", "max": "max", "min": "min", "mod": "mod"
+    }
 
-        def tree_depth(node):
-            if node is None or node.is_leaf:
-                return 1
-            return 1 + max(tree_depth(c) for c in node.successors)
-
-        def draw_node(node, x, y, dx, dy):
-            if node is None:
-                return
-
-            text = node.short_name
-            fontsize = 11
-            bbox = dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="black")
-
-            # Style constants vs variables vs operators
-            if node.is_leaf:
-                if node.short_name.replace(".", "", 1).isdigit():
-                    bbox = dict(boxstyle="circle", edgecolor="black", facecolor="lightgreen")  # constant
+    @staticmethod
+    def _parse_expr(expr, counter=[0]):
+        expr = expr.strip()
+        m = re.match(r'([a-zA-Z0-9_]+)\((.*)\)$', expr)
+        if m:
+            func, args = m.group(1), m.group(2)
+            node_id = f"n{counter[0]}"; counter[0] += 1
+            node = (node_id, Individual.op_map.get(func, func))
+            # split arguments at commas with parenthesis depth
+            parts, depth, buf = [], 0, ""
+            for c in args:
+                if c == "," and depth == 0:
+                    if buf.strip(): parts.append(buf.strip())
+                    buf = ""
                 else:
-                    bbox = dict(boxstyle="circle", edgecolor="black", facecolor="tomato")  # variable
+                    if c == "(": depth += 1
+                    elif c == ")": depth -= 1
+                    buf += c
+            if buf.strip(): parts.append(buf.strip())
+            children = [Individual._parse_expr(p, counter) for p in parts]
+            return (node, children)
+        else:
+            node_id = f"n{counter[0]}"; counter[0] += 1
+            label = expr
+            if re.match(r'^(\d+(\.\d+)?|\.\d+)$', label):
+                label = f"{float(label):.2f}"
+            return ((node_id, label), [])
+
+    @staticmethod
+    def _build_graph(tree, G=None):
+        if G is None:
+            G = nx.DiGraph()
+        (node, children) = tree
+        G.add_node(node[0], label=node[1])
+        for child in children:
+            (cnode, _) = child
+            G.add_edge(node[0], cnode[0])
+            Individual._build_graph(child, G)
+        return G
+
+    @staticmethod
+    def _hierarchy_pos(G, root, width=1., vert_gap=0.2, vert_loc=0):
+        leaves = [n for n in nx.dfs_preorder_nodes(G) if G.out_degree(n) == 0]
+        n_leaves = len(leaves)
+        x_leaf = {leaf: i/(n_leaves-1) if n_leaves > 1 else 0.5
+                  for i, leaf in enumerate(leaves)}
+        pos = {}
+        def set_pos(node, vert_loc):
+            children = list(G.successors(node))
+            if not children:
+                pos[node] = (x_leaf[node], vert_loc)
             else:
-                bbox = dict(boxstyle="round,pad=0.3", facecolor="lightblue", edgecolor="black")  # operator
-                fontsize += 1
+                for c in children: set_pos(c, vert_loc - vert_gap)
+                x = sum(pos[c][0] for c in children) / len(children)
+                pos[node] = (x, vert_loc)
+        set_pos(root, vert_loc)
+        return pos
 
-            # Draw this node
-            plt.text(x, y, text, ha="center", va="center", fontsize=fontsize, bbox=bbox)
-
-            # Draw children
-            if node.arity == 2:
-                plt.plot([x, x - dx], [y, y - dy], color="black")
-                draw_node(node.successors[0], x - dx, y - dy, dx / 2, dy)
-
-                plt.plot([x, x + dx], [y, y - dy], color="black")
-                draw_node(node.successors[1], x + dx, y - dy, dx / 2, dy)
-
-            elif node.arity == 1:
-                plt.plot([x, x], [y, y - dy], color="black")
-                draw_node(node.successors[0], x, y - dy, dx / 2, dy)
-
-        depth = tree_depth(self.root)
-        dx = 2 ** (depth + 1)   # horizontal spacing grows with depth
-        dy = 2                  # vertical spacing (fixed)
-
-        plt.figure(figsize=(max(15, dx), depth * 2.5))
+    def plot(self):
+        """Parse self into tree and draw with networkx."""
+        expr = str(self)
+        expr = re.sub(r"\s+", "", expr)  # clean spaces
+        tree = Individual._parse_expr(expr, [0])
+        G = Individual._build_graph(tree)
+        root = tree[0][0]
+        pos = Individual._hierarchy_pos(G, root)
+        plt.figure(figsize=(40, 24))
+        for n, data in G.nodes(data=True):
+            label = data["label"]
+            if re.match(r'^(\d+(\.\d+)?|\.\d+)$|^x\d+$', label):
+                plt.scatter(*pos[n], s=500, c="blue", alpha=0.3,
+                            marker="s", edgecolors="k")
+            else:
+                plt.scatter(*pos[n], s=500, c="red", alpha=0.3,
+                            marker="o", edgecolors="k")
+            plt.text(pos[n][0], pos[n][1], label,
+                     ha="center", va="center", fontsize=10)
+        nx.draw_networkx_edges(G, pos, arrows=True,
+                               edge_color="black", arrowsize=10)
         plt.axis("off")
-        plt.title("Expression Tree", fontsize=14)
-        draw_node(self.root, 0, 0, dx, dy)
         plt.show()

@@ -8,7 +8,6 @@ import numbers
 import warnings
 from typing import Callable
 
-from .draw import draw
 from .utils import arity
 
 __all__ = ['Node']
