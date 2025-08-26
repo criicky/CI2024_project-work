@@ -6,7 +6,277 @@ def f1(x: np.ndarray) -> np.ndarray:
 
 def f2(x: np.ndarray) -> np.ndarray:
     return (
-        
+        np.multiply(
+            np.add(
+                np.multiply(
+                    np.subtract(
+                        np.maximum(
+                            np.add(
+                                np.add(
+                                    np.add(
+                                        np.add(x[0], x[2]), 
+                                        np.add(x[0], x[0])
+                                    ), 
+                                    np.add(
+                                        np.add(
+                                            np.minimum(x[2], x[0]), 
+                                            np.add(x[0], x[1])
+                                        ), 
+                                        np.add(x[0], x[0])
+                                    )
+                                ), 
+                                po.protected_divide(
+                                    np.add(
+                                        np.add(
+                                            np.add(x[0], x[1]), 
+                                            po.protected_arcsin(x[2])
+                                        ), 
+                                        np.add(
+                                            np.minimum(x[0], x[0]), 
+                                            np.subtract(x[0], 1)
+                                        )
+                                    ), 
+                                    np.add(
+                                        x[0], 
+                                       np.add(x[0], x[1])
+                                    )
+                                )
+                            ), 
+                            po.protected_power(
+                                po.protected_power(
+                                    po.protected_divide(
+                                        x[0], 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            0.693147
+                                        )
+                                    ), 
+                                    po.protected_arcsin(
+                                        po.protected_mod(
+                                            np.minimum(
+                                                x[1], 
+                                                po.protected_sqrt(1.61803)
+                                            ), 
+                                            np.multiply(x[0], x[0])
+                                        )
+                                    )
+                                ), 
+                                x[0]
+                            )
+                        ), 
+                        np.add(
+                            np.add(
+                                np.multiply(
+                                    np.subtract(
+                                        po.protected_exp(
+                                            np.add(x[0], x[1])
+                                        ), 
+                                        po.protected_power(x[0], 1.41421)
+                                    ), 
+                                    np.add(
+                                        np.add(
+                                            po.protected_cosh(x[0]), 
+                                            np.add(x[0], x[0])
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(
+                                                np.multiply(x[1], x[2]), x[0])
+                                        )
+                                    )
+                                ), 
+                                np.add(
+                                    po.protected_arcsin(x[2]), 
+                                    np.add(
+                                        po.protected_power(
+                                            x[0], 
+                                            np.add(x[0], x[2])
+                                        ), 
+                                        x[2]
+                                    )
+                                )
+                            ), 
+                            np.add(
+                                np.add(
+                                    x[0], 
+                                    np.add(
+                                        np.add(
+                                            x[0], 
+                                            np.multiply(
+                                                x[0], 
+                                                po.protected_log2(x[1])
+                                            )
+                                        ), 
+                                        po.protected_power(x[0], np.add(x[0], x[2]))
+                                    )
+                                ), 
+                                po.protected_power(
+                                    x[0], 
+                                    np.add(
+                                        np.add(x[0], x[2]), x[1])
+                                )
+                            )
+                        )
+                    ), 
+                    np.add(
+                        np.add(x[2], x[2]), 
+                        np.add(
+                            np.add(x[0], x[1]), 
+                            np.add(
+                                np.add(x[2], x[2]), 
+                                np.add(x[1], x[1])
+                            )
+                        )   
+                    )
+                ), 
+                np.square(
+                    po.protected_sinh(
+                        po.protected_arcsin(
+                            np.add(
+                                po.protected_divide(
+                                    np.add(
+                                        np.add(
+                                            po.protected_cosh(3.14159), x[2]
+                                        ), 
+                                        np.add(x[0], x[1])
+                                    ), 
+                                    x[0]
+                                ), 
+                                0
+                            )
+                        )
+                    )
+                )
+            ), 
+            np.add(
+                np.add(
+                    np.add(
+                        np.cbrt(
+                            np.add(
+                                np.add(
+                                    np.add(
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[0], x[1])
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[0], x[1])
+                                        )
+                                    ), 
+                                    po.protected_divide(
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[0], x[1])
+                                        ), 
+                                        0.5
+                                    )
+                                ), 
+                                np.add(
+                                    np.add(
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[0], x[0])
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], np.subtract(x[1], 1)), 
+                                            np.add(x[0], x[0])
+                                        )
+                                    ), 
+                                    po.protected_divide(
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[0], x[1])
+                                        ), 
+                                        0.5
+                                    )
+                                )
+                            )
+                        ), 
+                        po.protected_sin(
+                            np.cbrt(
+                                np.add(
+                                    np.add(
+                                        np.add(x[0], x[2]), 
+                                        np.add(
+                                            po.protected_sin(x[1]), 
+                                            np.add(x[1], x[1])
+                                        )
+                                    ), 
+                                    np.add(
+                                        np.add(
+                                            po.protected_log(0.693147), 
+                                            np.maximum(0, x[0])
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.multiply(
+                                                np.add(1, 0.693147), 
+                                                np.cbrt(x[1])
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ), 
+                    np.cbrt(
+                        po.protected_sin(
+                            np.cbrt(
+                                np.add(
+                                    np.add(
+                                        np.add(
+                                            x[0], 
+                                            np.add(
+                                                po.protected_log(2), x[0]
+                                            )
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[1], x[1])
+                                        )
+                                    ), 
+                                    np.add(
+                                        np.add(x[0], x[2]), 
+                                        np.add(
+                                            np.add(x[2], x[2]), 
+                                            x[0]
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ), 
+                po.protected_sin(
+                    np.cbrt(
+                        po.protected_sin(
+                            np.cbrt(
+                                np.add(
+                                    np.add(
+                                        np.add(
+                                            x[0], 
+                                            np.add(x[0], x[0])
+                                        ), 
+                                        np.add(
+                                            np.add(x[0], x[2]), 
+                                            np.add(x[1], x[1])
+                                        )
+                                    ), 
+                                    np.add(
+                                        np.add(x[0], x[1]), 
+                                        np.add(
+                                            np.add(x[2], x[2]), 
+                                            np.add(x[0], x[1])
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
     )
 
 def f3(x: np.ndarray) -> np.ndarray:
